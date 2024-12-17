@@ -6,10 +6,14 @@ import petsRouter from './routes/pets.router.js';
 import adoptionsRouter from './routes/adoption.router.js';
 import sessionsRouter from './routes/sessions.router.js';
 import mocksRouter from './routes/mocks.router.js'
+import config from './config/config.js';
 
 const app = express()
 const PORT = process.env.PORT
-const connection = mongoose.connect(process.env.MONGO_URL)
+mongoose.connect(config.MongoUrl, 
+    { useNewUrlParser: true, useUnifiedTopology: true }) 
+    .then(() => console.log('Conectado a MongoDB')) 
+    .catch(err => console.error('Error conectando a MongoDB:', err));
 
 app.use(express.json());
 app.use(cookieParser());
