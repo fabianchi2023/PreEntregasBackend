@@ -7,13 +7,35 @@ import adoptionsRouter from './routes/adoption.router.js';
 import sessionsRouter from './routes/sessions.router.js';
 import mocksRouter from './routes/mocks.router.js'
 import config from './config/config.js';
+import swaggerJSDoc from 'swagger-jsdoc';
+import swaggerUiExpress from 'swagger-ui-express'
+import __dirname from './utils/index.js';
 
 const app = express()
 const PORT = process.env.PORT
 mongoose.connect(config.MongoUrl, 
     { useNewUrlParser: true, useUnifiedTopology: true }) 
-    .then(() => console.log('Conectado a MongoDB')) 
-    .catch(err => console.error('Error conectando a MongoDB:', err));
+    .then(() => console.log('Conectado a la base Mongo DB')) 
+    .catch(err => console.error('Error al intentar conectar a la base de Mongo DB:', err));
+
+const swaggerOptions = {
+    definition: {
+        openapi:'3.0.1',
+        info: {
+            title: "Proyecto final API ADOPTME",
+            description: "Documentacion de la API del proyecto final de BACKEND III, funcionalidad del router de USERS"
+        },
+        servers: [
+            {
+                url: `http://localhost:${8080}`
+            }
+        ]
+    },
+    //apis: [`${__dirname}/docs/**/*.yaml`]
+    apis: ['./src/routes/users.router.js']
+}
+const specs = swaggerJSDoc(swaggerOptions)
+app.use('/apidocs', swaggerUiExpress.serve, swaggerUiExpress.setup(specs))
 
 app.use(express.json());
 app.use(cookieParser());
