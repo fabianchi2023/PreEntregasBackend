@@ -4,7 +4,7 @@
 
 Utilizacion del repositorio "RecursosBackend-Adoptme" para la entrega de la cursada de Backend III.
 
-## Actualizaciones para la entrega final de la cursada BACKEND III:
+## Actualizaciones para la pre entrega final de la cursada BACKEND III:
 
 ### Demostración del funcionamiento con screenshots de POSTMAN y MONGODB:
 
@@ -28,6 +28,23 @@ Utilizacion del repositorio "RecursosBackend-Adoptme" para la entrega de la curs
 
 #GetPets en POSTMAN:
 ![GetPets](./src/public/img/getPets.png)
+
+## Actualizaciones para la entrega final de la cursada BACKEND III:
+
+#### Puntos a entregar:
+- Documentar con swagger el modulo de "Users".
+- Desarrollar los test funcionales para todos los endpoints del router "adoption.router.js"
+- Desarrollar el Dockerfile para generar una imagen del proyecto.
+- Subir la imagen de Docker a Dockerhub y añadir en un ReadMe.md al proyecto que contenga el link de dicha imagen.
+
+## Muestras de documentacion:
+
+#Inicio de la interfaz de swagger con los endpoints del router Users:
+
+![apidocs](./src/public/img/apidocs.png)
+
+#GetUserWithSwagger:
+![GetUserWithSwagger](./src/public/img/getSwagger.png)
 
 ## Autores y reconocimientos
 * Mauricio Espinosa Flores - Desarrollador principal
